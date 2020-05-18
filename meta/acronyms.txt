@@ -9,6 +9,7 @@ ASIC - Application Specific Integrated Circuit
 BFD - Bidirectional Forwarding Detection
 BFDV6 - Bidirectional Forwarding Detection for IPv6
 BGP - Border Gateway Protocol
+BOS - Bottom Of Stack
 CAM - Content Addressable Memory
 CB - Callback
 CBS - Committed Burst Size
@@ -61,6 +62,7 @@ L2MC - Layer 2 Multi Cast
 L3 - Layer 3
 LAG - Link Aggregation Group
 LPM - Longest Prefix Match
+LSP - Label Switched Path
 MAC - Medium Access Control
 MMU - Memory Management Unit
 MPLS - Multi Protocol Label Switching
@@ -76,6 +78,7 @@ PCI - Peripheral Component Interconnect
 PFC - Priority Flow Control
 PIR - Peak Information Rate
 PN - Packet Number
+PSC - PHB Scheduling Class
 PTP - Precision time protocol
 QOS - Quality of Service
 RARP - Reverse Address Resolution Protocol

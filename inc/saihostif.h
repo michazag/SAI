@@ -397,13 +397,25 @@ typedef enum _sai_hostif_trap_type_t
      */
     SAI_HOSTIF_TRAP_TYPE_PIPELINE_DISCARD_ROUTER = 0x00007002,
 
+    /**
+     * @brief MPLS packets with expiring TTL value of 1
+     * (default packet action is drop)
+     */
+    SAI_HOSTIF_TRAP_TYPE_MPLS_TTL_ERROR = 0x00008000,
+
+    /**
+     * @brief MPLS packet with router alert label
+     * (default packet action is forward)
+     */
+    SAI_HOSTIF_TRAP_TYPE_MPLS_ROUTER_ALERT_LABEL = 0x00008001,
+
     /** Exception traps custom range start */
-    SAI_HOSTIF_TRAP_TYPE_CUSTOM_EXCEPTION_RANGE_BASE = 0x00008000,
+    SAI_HOSTIF_TRAP_TYPE_CUSTOM_EXCEPTION_RANGE_BASE = 0x00009000,
 
     /**
      * @brief End of trap types
      */
-    SAI_HOSTIF_TRAP_TYPE_END = 0x00009000
+    SAI_HOSTIF_TRAP_TYPE_END = 0x0000a000
 
 } sai_hostif_trap_type_t;
 
@@ -586,6 +598,9 @@ typedef enum _sai_hostif_user_defined_trap_type_t
 
     /** FDB traps */
     SAI_HOSTIF_USER_DEFINED_TRAP_TYPE_FDB,
+
+    /** In Segment Entry traps */
+    SAI_HOSTIF_USER_DEFINED_TRAP_TYPE_INSEG_ENTRY,
 
     /** Custom range base */
     SAI_HOSTIF_USER_DEFINED_TRAP_TYPE_CUSTOM_RANGE_BASE = 0x00001000,
@@ -1171,6 +1186,17 @@ typedef enum _sai_hostif_packet_attr_t
      * @flags READ_ONLY
      */
     SAI_HOSTIF_PACKET_ATTR_TIMESTAMP,
+
+    /**
+     * @brief Egress queue index
+     *
+     * The egress queue id for egress port or LAG.
+     *
+     * @type sai_uint8_t
+     * @flags CREATE_ONLY
+     * @default 0
+     */
+    SAI_HOSTIF_PACKET_ATTR_EGRESS_QUEUE_INDEX,
 
     /**
      * @brief End of attributes
