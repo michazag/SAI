@@ -39,16 +39,16 @@
 typedef enum _sai_next_hop_group_type_t
 {
     /** Next hop group is ECMP */
-    SAI_NEXT_HOP_GROUP_TYPE_ECMP,
+     SAI_NEXT_HOP_GROUP_TYPE_ECMP,
 
     /** Next hop protection group. Contains primary and backup next hops. */
     SAI_NEXT_HOP_GROUP_TYPE_PROTECTION,
 
     /**
-     * @brief Next hop group is a L4 session aware load balancer. Guarantees the
-     * session consistency across the group updates.
+     * @brief Next hop group is a resilient ECMP. Guarantees the
+     * connection consistency across the group updates.
      */
-    SAI_NEXT_HOP_GROUP_TYPE_L4_SESSION_CONSISTENT,
+    SAI_NEXT_HOP_GROUP_TYPE_RESILIENT_ECMP,
 
     /* Other types of next hop group to be defined in the future, e.g., WCMP */
 
@@ -210,7 +210,7 @@ typedef enum _sai_next_hop_group_attr_t
      *
      * @type sai_uint32_t
      * @flags MANDATORY_ON_CREATE | CREATE_ONLY
-     * @condition SAI_NEXT_HOP_GROUP_ATTR_TYPE == SAI_NEXT_HOP_GROUP_TYPE_L4_SESSION_CONSISTENT
+     * @condition SAI_NEXT_HOP_GROUP_ATTR_TYPE == SAI_NEXT_HOP_GROUP_TYPE_RESILIENT_ECMP
      */
     SAI_NEXT_HOP_GROUP_ATTR_MAX_ENTRIES,
 
@@ -303,7 +303,7 @@ typedef enum _sai_next_hop_group_member_attr_t
     /**
      * @brief Member admin state. Allows for disabling a member without removing it.
      *
-     * Should only be used if the type of owning group is SAI_NEXT_HOP_GROUP_TYPE_L4_SESSION_CONSISTENT
+     * Should only be used if the type of owning group is SAI_NEXT_HOP_GROUP_TYPE_RESILIENT_ECMP
      *
      * @type sai_next_hop_group_member_admin_state_t
      * @flags CREATE_AND_SET
@@ -314,7 +314,7 @@ typedef enum _sai_next_hop_group_member_attr_t
     /**
      * @brief Member operational status.
      *
-     * Should only be used if the type of owning group is SAI_NEXT_HOP_GROUP_TYPE_L4_SESSION_CONSISTENT
+     * Should only be used if the type of owning group is SAI_NEXT_HOP_GROUP_TYPE_RESILIENT_ECMP
      *
      * @type sai_next_hop_group_member_oper_state_t
      * @flags READ_ONLY
